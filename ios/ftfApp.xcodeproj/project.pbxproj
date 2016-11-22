@@ -31,7 +31,7 @@
 		7919B35C18D7411DB178C64A /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B2F68DB29F34ECBA4206AB6 /* Roboto_medium.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		83A982BBDBA243D4BD7379AA /* Times New Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33A5719307BA44608DD58393 /* Times New Roman.ttf */; };
-		8BD401841DE482EB0003EFBF /* splash-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8BD401831DE482EB0003EFBF /* splash-sound.wav */; };
+		8BD401D71DE48F2C0003EFBF /* splash-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8BD401D61DE48F2C0003EFBF /* splash-sound.wav */; };
 		B7EDF9D8F6594D6CB99BB52A /* Comic Sans MS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5D110AE25774D44998A3194 /* Comic Sans MS.ttf */; };
 		BF093E6D61234E979EB7F808 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5CA38274574DCFB5D2596A /* libRCTVideo.a */; };
 		C8E9DF888DAF4B23932FFEFA /* libRNAudioPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5ED4473C1DC4E679777CCAA /* libRNAudioPlayer.a */; };
@@ -238,7 +238,7 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7D3E6E6E04364423A235475C /* Andale Mono.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Andale Mono.ttf"; path = "../node_modules/native-base/Fonts/Andale Mono.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		8BD401831DE482EB0003EFBF /* splash-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "splash-sound.wav"; path = "../_ios/ftfApp/splash-sound.wav"; sourceTree = "<group>"; };
+		8BD401D61DE48F2C0003EFBF /* splash-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "splash-sound.wav"; path = "../src/assets/splash-sound.wav"; sourceTree = "<group>"; };
 		A54972740DA54297B4D9A2E8 /* Microsoft Sans Serif.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Microsoft Sans Serif.ttf"; path = "../node_modules/native-base/Fonts/Microsoft Sans Serif.ttf"; sourceTree = "<group>"; };
 		AAC19B1A2C0B463F975D2135 /* Georgia.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Georgia.ttf; path = "../node_modules/native-base/Fonts/Georgia.ttf"; sourceTree = "<group>"; };
 		BCE7C62813C742ED988380B6 /* Arial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Arial.ttf; path = "../node_modules/native-base/Fonts/Arial.ttf"; sourceTree = "<group>"; };
@@ -362,7 +362,6 @@
 		13B07FAE1A68108700A75B9A /* ftfApp */ = {
 			isa = PBXGroup;
 			children = (
-				8BD401831DE482EB0003EFBF /* splash-sound.wav */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -385,6 +384,7 @@
 		176E9AB0D97D48DFA8132CE9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8BD401D61DE48F2C0003EFBF /* splash-sound.wav */,
 				7D3E6E6E04364423A235475C /* Andale Mono.ttf */,
 				581813FB9C0E43AF945FEE97 /* Arial Black.ttf */,
 				BCE7C62813C742ED988380B6 /* Arial.ttf */,
@@ -804,7 +804,7 @@
 				02F1FDB6340A48DDB13B3FC6 /* Georgia.ttf in Resources */,
 				DCB5D8C6A49E4FF7A798FCA0 /* Microsoft Sans Serif.ttf in Resources */,
 				7919B35C18D7411DB178C64A /* Roboto_medium.ttf in Resources */,
-				8BD401841DE482EB0003EFBF /* splash-sound.wav in Resources */,
+				8BD401D71DE48F2C0003EFBF /* splash-sound.wav in Resources */,
 				FA2035ED743340DAABE168E1 /* Roboto.ttf in Resources */,
 				220617D40CD24758AE5FB4D6 /* SF-UI-Text-Regular.otf in Resources */,
 				2DFFD8DE0A8E48FB8EDF60BB /* Skia.ttf in Resources */,
