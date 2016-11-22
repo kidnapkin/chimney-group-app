@@ -24,7 +24,9 @@ export default class AudioScreen extends Component {
   render() {
 		return (
       <View style={styles.container}>
-        <Player url="https://firebasestorage.googleapis.com/v0/b/ftf-a-a8f5a.appspot.com/o/start_jobsoegningen_allerede_under_specialet.mp3" />
+        <Player
+          url={this.state.selectedItem.uri.la}
+        />
       </View>
     );
   }
@@ -36,7 +38,7 @@ var styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: 'rgb(13, 85, 100)',
   },
   fullScreen: {
     position: 'absolute',
