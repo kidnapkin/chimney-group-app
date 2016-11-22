@@ -1,0 +1,11 @@
+rootProject.name = 'ftfApp'
+
+include ':app'
+include ':react-native-orientation'
+project(':react-native-orientation').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-orientation/android')
+include ':rn-splash-screen'
+project(':rn-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/rn-splash-screen/android')
+include ':react-native-audioplayer'
+project(':react-native-audioplayer').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-audioplayer/android')
+include ':react-native-video'
+project(':react-native-video').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-video/android')
