@@ -1,33 +1,44 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image, StatusBar, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
+import { Container, Header, Title, Thumbnail, Text, Button } from 'native-base';
 
 // Thirdparty
 import { Player } from 'react-native-audio-streaming';
-import { Actions, ActionConst, NavBar } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 export default class AudioScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedItem: this.props.item,
+      selectedItem: undefined
     }
-    console.log(this.state.selectedItem);
   }
 
-  // componentWillMount() {
-  //   var that = this;
-  //   that.setState({
-  //     selectedItem: this.props.item
-  //   })
-  // }
+  componentWillMount() {
+    this.setState({
+      selectedItem: this.props.item
+    })
+  }
 
   render() {
 		return (
-      <View style={styles.container}>
-        <Player
-          url={this.state.selectedItem.uri.la}
-        />
-      </View>
+      <Container backgroundColor={'rgb(255, 255, 255)'}>
+        <Header backgroundColor={'rgb(13, 85, 100)'}>
+						<Button transparent onPress={Actions.pop}>
+							<Image source={require('../assets/arrow.png')} />
+						</Button>
+						<Title style={{ marginTop: 8 }}><Image source={require('../assets/FTF-A-logo-bar.png')} /></Title>
+				</Header>
+        <View style={styles.container}>
+
+          <Thumbnail square size={160} source={{uri: this.state.selectedItem.thumbnail}} />
+          <Text style={{ fontWeight: 'bold', fontSize: 18, marginTop: 8, color: '#fff' }}>{this.state.selectedItem.title}</Text>
+
+          <Player
+            url={this.state.selectedItem.uri.la}
+          />
+        </View>
+    </Container>
     );
   }
 }
@@ -38,13 +49,6 @@ var styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgb(13, 85, 100)',
-  },
-  fullScreen: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
+    backgroundColor: 'rgba(13, 85, 100, 0.7)',
   }
 })

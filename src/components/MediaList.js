@@ -71,7 +71,6 @@ export default class MediaList extends Component {
                     })
             }
           }
-          //console.log(storage);
 					that.setState({
 						results: storage,
 						loading: false,
@@ -90,30 +89,40 @@ export default class MediaList extends Component {
 				</Header>
 				<Content backgroundColor={'#f6f6f6'}>
 					{this.state.loading ? <Spinner color={'rgb(13, 85, 100)'} /> :
-					<List dataArray={this.state.results} renderRow={(item) =>
-						<ListItem button onPress={() => { Actions.MediaScreen({ item: item }); }} >
-              <Grid>
-                 <Col style={{width: 80,height: 90, marginTop: 5}}>
-                   <Thumbnail square style= {{marginTop: 5}} size={80} source={{uri: item.thumbnail}} />
-                 </Col>
-                 <Col style={{ width: 206,height: 90, margin: 5, marginLeft: 12 }}>
-                    <Text style={{ fontWeight: 'normal', fontSize: 12, lineHeight: 14,marginTop: 3 }}>{item.title}</Text>
-                    	<Text note style={{ color: '#0D5564', fontSize: 10, lineHeight: 12, marginTop: 7}}>{item.description}</Text>
-                 </Col>
-                 <Col style={{width: 25 ,height: 90, margin: 5 }}>
-                   <Image style={{marginTop: 54, width: 35, height: 30 }}
-
-                 source={(item.type == 'video') ? require('../assets/video-greyish.png') : (item.type == 'audio') ? require('../assets/audio-greyish.png') : require('../assets/FTF-A-logo-bar.png')}
-                 />
-                 </Col>
-             </Grid>
-
-
-
-
-
-						</ListItem>
-					}/>}
+  					<Card dataArray={this.state.results}
+                  renderRow={(item) =>
+  						<CardItem button
+                        onPress={() =>
+                        { Actions.MediaScreen({ item: item }); }}
+                        >
+                <Grid>
+                   <Col style={{width: 80,height: 90, marginTop: 5}}>
+                     <Thumbnail
+                       style= {{marginTop: 5}}
+                       size={80}
+                       source={{uri: item.thumbnail}}
+                     />
+                   </Col>
+                   <Col style={{height: 90, margin: 5, marginLeft: 12 }}>
+                      <Text style={{ fontWeight: 'bold', fontSize: 12, lineHeight: 14,marginTop: 3 }}>{item.title}</Text>
+                      <Text
+                        note
+                        style={{ color: '#0D5564', fontSize: 11, lineHeight: 12, marginTop: 7}}
+                      >
+                        {item.description.substring(0, 70) + '...'}
+                      </Text>
+                   </Col>
+                   <Col style={{width: 25 ,height: 90, margin: 5 }}>
+                     <Image
+                       style={{marginTop: 54, width: 35, height: 30 }}
+                       source={(item.type == 'video') ? require('../assets/video-greyish.png') : (item.type == 'audio') ? require('../assets/audio-greyish.png') : require('../assets/FTF-A-logo-bar.png')}
+                     />
+                   </Col>
+               </Grid>
+             </CardItem>
+  					}>
+            </Card>
+          }
 				</Content>
 			</Container>
 		);
@@ -121,29 +130,7 @@ export default class MediaList extends Component {
 }
 
 const styles = StyleSheet.create({
-		header : {
-				marginLeft: -5,
-				marginTop: 5,
-				marginBottom: (Platform.OS==='ios') ? -7 : 0,
-				lineHeight: 24,
-				color: '#5357b6'
-		},
-		modalImage: {
-				resizeMode: 'contain',
-				height: 200
-		},
 		bold: {
 				fontWeight: '600'
 		},
-		negativeMargin: {
-				marginBottom: -10
-		},
-		backgroundVideo: {
-  		position: 'absolute',
-  		top: 0,
-  		left: 0,
-  		bottom: 0,
-  		right: 0,
-	 }
-
 });

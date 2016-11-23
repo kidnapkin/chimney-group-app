@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image, StatusBar, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 // Thirdparty
-import { Container, Header, Title, Content, List, Thumbnail, ListItem, Text, Button, Spinner, Card, CardItem, H3 } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
 import VideoPlayer from 'react-native-video-controls';
-import { Actions, ActionConst, NavBar } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 export default class VideoScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedItem: undefined,
+      selectedItem: undefined
     }
   }
 
   componentWillMount() {
-    var that = this;
-    that.setState({
+    this.setState({
       selectedItem: this.props.item
     })
   }
@@ -35,7 +32,7 @@ export default class VideoScreen extends Component {
 										playWhenInactive={ false }   // [iOS] continuing playing when notification centre active
 										playInBackground={ false }   // play audio when entering background
 										resizeMode={ 'contain' }     // 'contain' or 'cover' should be used.
-										paused={ true }             // stop playback entirely
+										paused={ false }             // stop playback entirely
 										repeat={ false }             // Repeats at end of duration
 										muted={ false }              // Mutes the audio entirely.
 										volume={ 1 }                 // 0 is muted, 1 is normal.
@@ -47,7 +44,7 @@ export default class VideoScreen extends Component {
 										// onProgress={}    // Fired every ~250ms when the video progresses
 										// onError={}       // Fired when an error is encountered on load
 										// onLoad={}        // Fired when loading is complete
-										// onEnd={}         // Fired when the video is complete.
+										onEnd={ Actions.pop }         // Fired when the video is complete.
 
 										// actions
 										goBack={ Actions.pop }   // Function fired when back button is pressed.
