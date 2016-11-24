@@ -73,6 +73,7 @@ export default class MediaList extends Component {
           }
 					that.setState({
 						results: storage,
+            sendItems: storage,
 						loading: false,
 					});
 				}, function (errorObject) {
@@ -89,12 +90,13 @@ export default class MediaList extends Component {
 				</Header>
 				<Content backgroundColor={'#f6f6f6'}>
 					{this.state.loading ? <Spinner color={'rgb(13, 85, 100)'} /> :
-  					<Card dataArray={this.state.results}
+  					<Card dataArray={that.state.results}
                   renderRow={(item) =>
   						<CardItem button
                         onPress={() =>
-                        { Actions.MediaScreen({ item: item }); }}
-                        >
+                        { console.log(that.state.sendItems);
+                          Actions.MediaScreen({ item: item,
+                                                items: that.state.sendItems }); }}>
                 <Grid>
                    <Col style={{width: 80,height: 90, marginTop: 5}}>
                      <Thumbnail

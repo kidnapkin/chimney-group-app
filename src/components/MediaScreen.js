@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, ListView, Image } from 'react-native';
 
 // Thirdparty
 import { Container, Header, Title, Content, Thumbnail, Text, Button, Spinner, Card, CardItem } from 'native-base';
@@ -11,13 +11,18 @@ export default class MediaScreen extends Component {
 		super(props);
 		this.state = {
 			selectedItem: undefined,
+			items: undefined
 		}
 	}
 
 	componentWillMount() {
+		const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.setState({
-			selectedItem: this.props.item
-		})
+			selectedItem: this.props.item,
+			items: this.props.items,
+			dataSource: ds.cloneWithRows(this.props.items)
+		});
+		console.log(this.state.items);
 	}
 
   render() {
@@ -31,7 +36,7 @@ export default class MediaScreen extends Component {
 				</Header>
 				<Content>
 						<Card style={{ flex: 0 }}>
-							<CardItem>
+							<CardItem header>
 									<Thumbnail
 										source={(this.state.selectedItem.type == 'video') ?
 														require('../assets/video@3x.png') : (this.state.selectedItem.type == 'audio') ?
@@ -40,15 +45,41 @@ export default class MediaScreen extends Component {
 									<Text>{this.state.selectedItem.title}</Text>
 									<Text note>April 15, 2016</Text>
 							</CardItem>
-							<CardItem cardBody button onPress={() => {
-																			this.state.selectedItem.type == 'video' ?
-																			Actions.VideoScreen({ item: this.state.selectedItem }) :
-																			Actions.AudioScreen({ item: this.state.selectedItem });
-																		}}>
+							<CardItem
+									cardBody
+									button onPress={() => {
+																		this.state.selectedItem.type == 'video' ?
+																		Actions.VideoScreen({ item: this.state.selectedItem }) :
+																		Actions.AudioScreen({ item: this.state.selectedItem });
+																	}}>
 									<Image style={{ resizeMode: 'cover'}} source={{ uri: this.state.selectedItem.thumbnail }} />
 									<Text>
 											{this.state.selectedItem.description}
 									</Text>
+							</CardItem>
+							<CardItem header>
+								<ScrollView
+									automaticallyAdjustContentInsets={true}
+									horizontal={true}
+								>
+									<ListView
+														horizontal={true}
+														dataSource={this.state.dataSource}
+														renderRow={(item) =>
+										<TouchableOpacity
+															style={styles.column}
+															onPress={() =>
+															{ Actions.MediaScreen({ item: item,
+																											items: this.state.items }); }}>
+												<Thumbnail
+													square
+													size={80}
+													source={{uri: item.thumbnail}}
+												/>
+												<Text>{item.title}</Text>
+										</TouchableOpacity>
+									}/>
+								</ScrollView>
 							</CardItem>
 						</Card>
 				</Content>
@@ -56,3 +87,16 @@ export default class MediaScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+		column: {
+				marginLeft: 10,
+				marginRight: 10,
+				padding: 5,
+				alignItems: 'center',
+				borderWidth: 1,
+				borderColor: '#ddd',
+				borderRadius: 3,
+				maxWidth: 180,
+		}
+});
