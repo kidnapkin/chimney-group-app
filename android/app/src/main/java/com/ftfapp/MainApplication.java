@@ -4,6 +4,8 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.audioStreaming.ReactNativeAudioStreamingPackage;
 import com.github.yamill.orientation.OrientationPackage;
 import com.mehcode.reactnative.splashscreen.SplashScreenPackage;
@@ -29,6 +31,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
+            new VectorIconsPackage(),
             new ReactNativeAudioStreamingPackage(),
             new OrientationPackage(this),
             new SplashScreenPackage(),

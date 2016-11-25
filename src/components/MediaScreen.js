@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, TouchableOpacity, ListView, Image } from 'react-native';
 
 // Thirdparty
-import { Container, Header, Title, Content, Thumbnail, Text, Button, Spinner, Card, CardItem } from 'native-base';
+import { Container, Header, Title, Content, Thumbnail, Text, Button, Spinner, Card, CardItem} from 'native-base';
 import { Actions } from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/FontAwesome';
+const playIcon = (<Icon name="play" size={30} color="#900" />)
 
 
 export default class MediaScreen extends Component {
@@ -45,16 +47,20 @@ export default class MediaScreen extends Component {
 									<Text>{this.state.selectedItem.title}</Text>
 									<Text note>April 15, 2016</Text>
 							</CardItem>
-							<CardItem
-									cardBody
-									button onPress={() => {
-																		this.state.selectedItem.type == 'video' ?
-																		Actions.VideoScreen({ item: this.state.selectedItem }) :
-																		Actions.AudioScreen({ item: this.state.selectedItem });
-																	}}>
-									<Image style={{ resizeMode: 'cover'}} source={{ uri: this.state.selectedItem.thumbnail }} />
+							<CardItem cardBody>
+									<TouchableOpacity
+										style={{ minHeight: 150 }}
+										onPress={() => {
+											this.state.selectedItem.type == 'video' ?
+											Actions.VideoScreen({ item: this.state.selectedItem }) :
+											Actions.AudioScreen({ item: this.state.selectedItem });
+										}}>
+										<Image style={{ resizeMode: 'cover', backgroundColor: 'transparent',flex: 1, alignItems: 'center', justifyContent: 'center'}} source={{ uri: this.state.selectedItem.thumbnail }} >
+											<Icon name="play-circle-o" size={80} color="rgb(13, 85, 100)" />
+										</Image>
+									</TouchableOpacity>
 									<Text>
-											{this.state.selectedItem.description}
+										{this.state.selectedItem.description}
 									</Text>
 							</CardItem>
 							<CardItem header>
