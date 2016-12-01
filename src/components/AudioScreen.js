@@ -31,11 +31,11 @@ export default class AudioScreen extends Component {
 				</Header>
         <View style={styles.container}>
 
-          <Thumbnail square size={160} source={{uri: this.state.selectedItem.thumbnail}} />
+          <Thumbnail square size={160} source={{uri: 'https://chimney-api-hanslandgreen.c9users.io' + this.state.selectedItem.thumbnail.thumbnail.url}} />
           <Text style={{ fontWeight: 'bold', fontSize: 18, marginTop: 8, color: '#fff' }}>{this.state.selectedItem.title}</Text>
 
           <Player
-            url={this.state.selectedItem.uri.la}
+            url={'https://chimney-api-hanslandgreen.c9users.io' + this.state.selectedItem.media.media.url}
           />
         </View>
     </Container>

@@ -5,7 +5,6 @@ import { ScrollView, StyleSheet, TouchableOpacity, ListView, Image } from 'react
 import { Container, Header, Title, Content, Thumbnail, Text, Button, Spinner, Card, CardItem} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
-const playIcon = (<Icon name="play" size={30} color="#900" />)
 
 
 export default class MediaScreen extends Component {
@@ -26,7 +25,7 @@ export default class MediaScreen extends Component {
 		});
 		console.log(this.state.items);
 	}
-
+	//121958
   render() {
 		return (
 			<Container>
@@ -40,8 +39,8 @@ export default class MediaScreen extends Component {
 						<Card style={{ flex: 0 }}>
 							<CardItem header>
 									<Thumbnail
-										source={(this.state.selectedItem.type == 'video') ?
-														require('../assets/video@3x.png') : (this.state.selectedItem.type == 'audio') ?
+										source={(this.state.selectedItem.media_type == 'video') ?
+														require('../assets/video@3x.png') : (this.state.selectedItem.media_type == 'audio') ?
 														require('../assets/audio.png') : require('../assets/FTF-A-logo-bar.png')}
 										/>
 									<Text>{this.state.selectedItem.title}</Text>
@@ -51,11 +50,11 @@ export default class MediaScreen extends Component {
 									<TouchableOpacity
 										style={{ minHeight: 150 }}
 										onPress={() => {
-											this.state.selectedItem.type == 'video' ?
+											this.state.selectedItem.media_type == 'video' ?
 											Actions.VideoScreen({ item: this.state.selectedItem }) :
 											Actions.AudioScreen({ item: this.state.selectedItem });
 										}}>
-										<Image style={{ resizeMode: 'cover', backgroundColor: 'transparent',flex: 1, alignItems: 'center', justifyContent: 'center'}} source={{ uri: this.state.selectedItem.thumbnail }} >
+										<Image style={{ resizeMode: 'cover', backgroundColor: 'transparent',flex: 1, alignItems: 'center', justifyContent: 'center'}} source={{ uri: 'https://chimney-api-hanslandgreen.c9users.io' + this.state.selectedItem.thumbnail.thumbnail.url }} >
 											<Icon name="play-circle-o" size={80} color="rgb(13, 85, 100)" />
 										</Image>
 									</TouchableOpacity>
@@ -80,7 +79,7 @@ export default class MediaScreen extends Component {
 												<Thumbnail
 													square
 													size={80}
-													source={{uri: item.thumbnail}}
+													source={{uri: 'https://chimney-api-hanslandgreen.c9users.io' + item.thumbnail.thumbnail.url}}
 												/>
 												<Text>{item.title}</Text>
 										</TouchableOpacity>

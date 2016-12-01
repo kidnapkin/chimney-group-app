@@ -25,8 +25,8 @@ export default class VideoScreen extends Component {
 						<View style={styles.fullScreen}>
 							<VideoPlayer
 										style={styles.fullScreen}
-										thumbnail={{uri: this.state.selectedItem.thumbnail}}
-										source={{uri: this.state.selectedItem.uri.la}}
+										thumbnail={{uri: 'https://chimney-api-hanslandgreen.c9users.io' + this.state.selectedItem.thumbnail.thumbnail.url}}
+										source={{uri: 'https://chimney-api-hanslandgreen.c9users.io' + this.state.selectedItem.media.media.url}}
 
 										// react-native-video options
 										playWhenInactive={ false }   // [iOS] continuing playing when notification centre active
