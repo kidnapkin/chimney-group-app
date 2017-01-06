@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 // Thirdparty
-import VideoPlayer from './react-native-video-controls/VideoPlayer';
+import VideoPlayer from './VideoPlayer';
 import { Actions } from 'react-native-router-flux';
 
 export default class PlaybackScreen extends Component {
