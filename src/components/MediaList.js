@@ -74,8 +74,8 @@ export default class MediaList extends Component {
 		var that = this;
 		return (
       <Container>
-				<Header backgroundColor={'rgb(13, 85, 100)'}>
-						<Title style={{ marginTop: 8 }}><Image source={require('../assets/FTF-A-logo-bar.png')} /></Title>
+				<Header backgroundColor={'#2A2A2A'}>
+						<Title style={{ marginTop: 8 }}><Image source={require('../assets/Chimney-logo-white-top.png')} /></Title>
 				</Header>
 				<Content refreshControl={
                     <RefreshControl
@@ -83,7 +83,7 @@ export default class MediaList extends Component {
                       onRefresh={that._onRefresh.bind(this)}
                     />}
           backgroundColor={'#f6f6f6'}>
-					{this.state.loading ? <Spinner color={'rgb(13, 85, 100)'} /> :
+					{this.state.loading ? <Spinner style={{alignSelf: 'center'}} color={'#2A2A2A'} />:
   					<Card dataArray={that.state.resultApi}
                   renderRow={(item) =>
   						<CardItem button
@@ -94,6 +94,7 @@ export default class MediaList extends Component {
                 <Grid>
                    <Col style={{width: 80,height: 90, marginTop: 5}}>
                      <Thumbnail
+											 square
                        style= {{marginTop: 5}}
                        size={80}
                        source={{ uri: 'https://chimney-api-hanslandgreen.c9users.io' + item.thumbnail.thumbnail.url }}
@@ -110,8 +111,9 @@ export default class MediaList extends Component {
                    </Col>
                    <Col style={{width: 25 ,height: 90, margin: 5 }}>
                      <Image
+											 square
                        style={{marginTop: 54, width: 35, height: 30 }}
-                       source={(item.media_type == 'video') ? require('../assets/video-greyish.png') : (item.media_type == 'audio') ? require('../assets/audio-greyish.png') : require('../assets/FTF-A-logo-bar.png')}
+                       source={(item.media_type == 'video') ? require('../assets/video.png') : (item.media_type == 'audio') ? require('../assets/audio.png') : require('../assets/Chimney-logo-white-top.png')}
                      />
                    </Col>
                </Grid>

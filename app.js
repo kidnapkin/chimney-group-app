@@ -10,15 +10,13 @@ import AudioPlayer from 'react-native-audioplayer';
 // Custom Components
 import MediaList from './src/components/MediaList';
 import MediaScreen from './src/components/MediaScreen';
-import VideoScreen from './src/components/VideoScreen';
-import AudioScreen from './src/components/AudioScreen';
+import PlaybackScreen from './src/components/PlaybackScreen';
 
 const scenes = Actions.create(
-  <Scene key="root" navigationBarStyle={{backgroundColor: 'rgb(13, 85, 100)', borderBottomColor:"#1e2226"}} titleStyle={{color : "#FFF"}}>
-    <Scene key="MediaList" component={MediaList} title="FTF-A" initial={true} />
-    <Scene key="MediaScreen" component={MediaScreen} title="FTF-A" />
-    <Scene key="VideoScreen" component={VideoScreen} />
-    <Scene key="AudioScreen" component={AudioScreen} />
+  <Scene key="root" navigationBarStyle={{backgroundColor: '#2A2A2A'}} titleStyle={{color : "#FFF"}}>
+    <Scene key="MediaList" component={MediaList} title="Chimney" initial={true} />
+    <Scene key="MediaScreen" component={MediaScreen} title="Chimney Group" />
+    <Scene key="PlaybackScreen" component={PlaybackScreen} />
   </Scene>
 );
 

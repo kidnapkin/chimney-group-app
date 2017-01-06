@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 // Thirdparty
-import VideoPlayer from 'react-native-video-controls';
+import VideoPlayer from './react-native-video-controls/VideoPlayer';
 import { Actions } from 'react-native-router-flux';
 
-export default class VideoScreen extends Component {
+export default class PlaybackScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -29,8 +29,6 @@ export default class VideoScreen extends Component {
 										source={{uri: 'https://chimney-api-hanslandgreen.c9users.io' + this.state.selectedItem.media.media.url}}
 
 										// react-native-video options
-										playWhenInactive={ false }   // [iOS] continuing playing when notification centre active
-										playInBackground={ false }   // play audio when entering background
 										resizeMode={ 'contain' }     // 'contain' or 'cover' should be used.
 										paused={ false }             // stop playback entirely
 										repeat={ false }             // Repeats at end of duration
@@ -47,7 +45,7 @@ export default class VideoScreen extends Component {
 										onEnd={ Actions.pop }         // Fired when the video is complete.
 
 										// actions
-										goBack={ Actions.pop }   // Function fired when back button is pressed.
+										onBack={ Actions.pop }   // Function fired when back button is pressed.
 								/>
 					</View>
       </View>

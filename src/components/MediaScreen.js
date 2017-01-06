@@ -29,36 +29,33 @@ export default class MediaScreen extends Component {
   render() {
 		return (
 			<Container>
-				<Header backgroundColor={'rgb(13, 85, 100)'}>
+				<Header backgroundColor={'#2A2A2A'}>
 						<Button transparent onPress={Actions.pop}>
-							<Image source={require('../assets/arrow.png')} />
+							<Icon name="caret-left" size={35} color="#fff" />
 						</Button>
-						<Title style={{ marginTop: 8 }}><Image source={require('../assets/FTF-A-logo-bar.png')} /></Title>
+						<Title style={{ marginTop: 8 }}><Image source={require('../assets/Chimney-logo-white-top.png')} /></Title>
 				</Header>
 				<Content>
-						<Card style={{ flex: 0 }}>
-							<CardItem header>
-									<Thumbnail
-										source={(this.state.selectedItem.media_type == 'video') ?
-														require('../assets/video@3x.png') : (this.state.selectedItem.media_type == 'audio') ?
-														require('../assets/audio.png') : require('../assets/FTF-A-logo-bar.png')}
-										/>
-									<Text>{this.state.selectedItem.title}</Text>
-									<Text note>April 15, 2016</Text>
-							</CardItem>
-							<CardItem cardBody>
+						<Card style={{ flex: 0, padding: 0 }}>
+							<CardItem style={{ padding: 0 }} cardBody>
 									<TouchableOpacity
 										style={{ minHeight: 150 }}
-										onPress={() => {
-											this.state.selectedItem.media_type == 'video' ?
-											Actions.VideoScreen({ item: this.state.selectedItem }) :
-											Actions.AudioScreen({ item: this.state.selectedItem });
-										}}>
+										onPress={() => Actions.PlaybackScreen({ item: this.state.selectedItem })}>
 										<Image style={{ resizeMode: 'cover', backgroundColor: 'transparent',flex: 1, alignItems: 'center', justifyContent: 'center'}} source={{ uri: 'https://chimney-api-hanslandgreen.c9users.io' + this.state.selectedItem.thumbnail.thumbnail.url }} >
-											<Icon name="play-circle-o" size={80} color="rgb(13, 85, 100)" />
+											<Icon name="play" size={80} color="#66BEA2" />
+
 										</Image>
 									</TouchableOpacity>
-									<Text>
+									<CardItem header>
+											<Thumbnail
+												style={{ width: 35, height: 30, alignSelf: 'center' }}
+												source={(this.state.selectedItem.media_type == 'video') ?
+																require('../assets/video.png') : (this.state.selectedItem.media_type == 'audio') ?
+																require('../assets/audio.png') : require('../assets/Chimney-logo-white-top.png')}
+												/>
+											<Text>{this.state.selectedItem.title}</Text>
+									</CardItem>
+									<Text style={{ padding: 10 }}>
 										{this.state.selectedItem.description}
 									</Text>
 							</CardItem>
@@ -78,10 +75,10 @@ export default class MediaScreen extends Component {
 																											items: this.state.items }); }}>
 												<Thumbnail
 													square
-													size={80}
+													style={{ width: 150, height: 80 }}
 													source={{uri: 'https://chimney-api-hanslandgreen.c9users.io' + item.thumbnail.thumbnail.url}}
 												/>
-												<Text>{item.title}</Text>
+												<Text style={{ paddingTop: 5, paddingBottom: 5 }}>{item.title}</Text>
 										</TouchableOpacity>
 									}/>
 								</ScrollView>
@@ -97,7 +94,7 @@ const styles = StyleSheet.create({
 		column: {
 				marginLeft: 10,
 				marginRight: 10,
-				padding: 5,
+				// padding: 5,
 				alignItems: 'center',
 				borderWidth: 1,
 				borderColor: '#ddd',
