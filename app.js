@@ -22,7 +22,7 @@ const scenes = Actions.create(
   </Scene>
 );
 
-class ftfApp extends Component {
+class ChimneyGroup extends Component {
 
   state = {
     isLoading: true,
@@ -53,4 +53,4 @@ class ftfApp extends Component {
   }
 }
 
-AppRegistry.registerComponent('ftfApp', () => ftfApp);
+AppRegistry.registerComponent('ChimneyGroup', () => ChimneyGroup);

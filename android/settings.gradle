@@ -1,4 +1,4 @@
-rootProject.name = 'ftfApp'
+rootProject.name = 'ChimneyGroup'
 
 include ':app'
 include ':react-native-vector-icons'
